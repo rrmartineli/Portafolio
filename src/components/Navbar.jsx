@@ -1,7 +1,35 @@
+import { useEffect, useState } from "react"
+
 function Navbar() {
+  const [showNavbar, setShowNavbar] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // altura después del hero
+      setShowNavbar(window.scrollY > window.innerHeight * 0.4)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
   return (
-    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/30 border-b border-white/10">
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header
+      className={`
+        fixed top-0 left-0 w-full z-50
+        backdrop-blur-md bg-black/30 border-b border-white/10
+        transition-all duration-500
+        ${
+          showNavbar
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-full pointer-events-none"
+        }
+      `}
+    >
+      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <h1 className="text-xl font-bold tracking-wide">
           RM
         </h1>

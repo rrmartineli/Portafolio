@@ -2,17 +2,18 @@ import { motion } from "framer-motion"
 import udecLogo from "../assets/Udec.png";
 import MinTIC from "../assets/MinTIC.png";
 import Platzi from "../assets/Platzi.png";
+import { layout } from "../styles/layout"
 
 const educationData = [
   {
-    title: "Universidad De Cundinamarcar",
+    title: "Universidad De Cundinamarca",
     subtitle: "UDEC",
-    date: "2020 - 2024",
+    date: "2026",
     description: "Ingeniero electrónico",
     image: udecLogo,
   },
   {
-    title: "El Ministerio de Tecnologías de la Información y las Comunicaciones de Colombia",
+    title: "Ministerio de Tecnologías de la Información y las Comunicaciones",
     subtitle: "MinTIC",
     date: "2025",
     description: "Bootcamp Inteligencia Artificial",
@@ -37,23 +38,23 @@ const educationData = [
 
 export default function Education() {
   return (
-    <section className="w-full py-14 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className={layout.section} id="education">
+      <div className={layout.container}>
         {/* TITULO */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex items-center justify-center gap-4 mb-16"
+          className="flex items-center justify-center gap-4 mb-10"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-white">
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
             Educación
           </h2>
         </motion.div>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           {educationData.map((item, index) => (
             <motion.div
               key={index}
@@ -121,23 +122,23 @@ export default function Education() {
                 {/* HEADER */}
                 <div className="flex justify-between gap-6">
                   <div>
-                    <h3 className="text-3xl font-bold text-white leading-tight">
+                    <h3 className="text-xl font-bold text-white leading-tight">
                       {item.title}
                     </h3>
 
-                    <p className="text-zinc-400 text-2xl mt-1">
+                    <p className="text-zinc-400 text-md mt-1">
                       {item.subtitle}
                     </p>
                   </div>
 
-                  <p className="text-zinc-500 whitespace-nowrap text-lg">
+                  <p className="text-zinc-500 whitespace-nowrap text-md">
                     {item.date}
                   </p>
                 </div>
 
                 {/* DESCRIPCION */}
                 <div className="mt-10">
-                  <p className="text-zinc-200 text-xl leading-relaxed whitespace-pre-line">
+                  <p className="text-zinc-200 text-md leading-relaxed whitespace-pre-line">
                     {item.description}
                   </p>
                 </div>
