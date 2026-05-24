@@ -7,12 +7,7 @@ import mapaBogota from "../assets/mapa-bogota.png";
 import { layout } from "../styles/layout"
 
 const SOCIAL_LINKS = [
-  { 
-    id: 'github', 
-    href: 'https://github.com/', 
-    icon: FaGithub, 
-    hover: 'hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]' 
-  },
+  
   { 
     id: 'linkedin', 
     href: 'https://www.linkedin.com/in/rafael-martinez-587822374/', 
@@ -27,8 +22,32 @@ const SOCIAL_LINKS = [
   },
 ];
 
-function Hero() {
+function Hero({ language }) {
   const [count, setCount] = useState(2);
+
+  const translations = {
+    ES: {
+      role: "Fullstack Developer",
+      social: "Redes",
+      downloadCV: "Descargar CV",
+      yearsExperience: "años de experiencia",
+
+      description:
+        "Desarrollador de Software con experiencia en el diseño desarrollo e integración de aplicaciones multiplataforma.",
+    },
+
+    EN: {
+      role: "Fullstack Developer",
+      social: "Socials",
+      downloadCV: "Download CV",
+      yearsExperience: "years of experience",
+
+      description:
+        "Software Developer with experience in the design, development and integration of multiplatform applications.",
+    },
+  }
+
+  const t = translations[language]
 
   const handleMouseEnter = () => {
     let start = 0;
@@ -124,7 +143,7 @@ function Hero() {
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mt-2">
               <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse mr-2" />
               <span className="text-blue-400 text-sm md:text-xs font-medium tracking-wide uppercase">
-                Fullstack Developer
+                {t.role}
               </span>
             </div>
           </div>
@@ -156,9 +175,9 @@ function Hero() {
         >
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 pointer-events-none" />
             <div className="relative z-10 h-full flex flex-col ">
-              <p className="text-zinc-500 uppercase text-xs tracking-[0.2em] group-hover:text-zinc-300">Redes</p>
+              <p className="text-zinc-500 uppercase text-xs tracking-[0.2em] group-hover:text-zinc-300">{t.social}</p>
               <div className="flex h-full items-center">
-                <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 md:py-2 gap-2 w-fit mx-auto">
+                <div className="grid grid-cols-2 md:py-2 gap-2 w-fit mx-auto">
                 {SOCIAL_LINKS.map(({ id, href, icon: Icon, hover },index) => (
                   <a key={id} href={href} target="_blank" rel="noopener noreferrer"
                     className={`
@@ -247,7 +266,7 @@ function Hero() {
               hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]
             ">
               <FiDownload className=" hidden lg:block transition-transform duration-300 lg:group-hover/button:translate-y-[1px]" />
-              Descargar CV
+              {t.downloadCV}
             </button>
           </div>
         </motion.div>
@@ -278,7 +297,7 @@ function Hero() {
         >
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 pointer-events-none" />
           <h2 className="relative z-10 text-6xl font-bold mb-2 text-white tabular-nums">+{count}</h2>
-          <p className="relative z-10 text-zinc-400 text-center uppercase text-[10px] tracking-widest">años de experiencia</p>
+          <p className="relative z-10 text-zinc-400 text-center uppercase text-[10px] tracking-widest">{t.yearsExperience}</p>
         </motion.div>
 
         {/* DESCRIPCIÓN */}
@@ -309,7 +328,7 @@ function Hero() {
         >
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 pointer-events-none" />
           <p className="relative z-10 md:text-xs md:text-center lg:text-sm lg:text-left xl:text-base leading-[1.4] font-normal tracking-normal text-zinc-200 antialiased">
-            Desarrollador de Software con experiencia en el diseño desarrollo e integración de aplicaciones multiplataforma.
+            {t.description}
           </p>
         </motion.div>
 

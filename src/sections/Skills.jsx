@@ -59,10 +59,11 @@ const skillsBottom = [
 
 function Skills() {
   return (
-    <section className={`${layout.section} relative`}>
+    <section className={`${layout.section} relative scroll-mt-10`} id="Tecnologias">
       <div className={`${layout.container} relative overflow-hidden `}>
-        <div className="absolute left-0 top-0 z-10 h-full w-20 lg:w-50 pointer-events-none bg-gradient-to-r from-black via-black/95 to-transparent" />
-        <div className="absolute right-0 top-0 z-10 h-full w-20 lg:w-50 pointer-events-none bg-gradient-to-l from-black via-black/95 to-transparent" />
+
+        <div className="absolute left-0 top-0 z-10 h-full w-8 sm:w-12 md:w-20 lg:w-40 pointer-events-none bg-gradient-to-r from-black via-black/95 to-transparent" />
+        <div className="absolute right-0 top-0 z-10 h-full w-8 sm:w-12 md:w-20 lg:w-40 pointer-events-none bg-gradient-to-l from-black via-black/95 to-transparent" />
 
         <div className="justify-center items-center relative ">          
           {/* TITLE */}

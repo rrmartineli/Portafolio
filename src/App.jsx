@@ -4,6 +4,8 @@ import {
   Route,
 } from "react-router-dom"
 
+import { useState } from "react"
+
 import Navbar from "./components/Navbar"
 import Hero from "./sections/Hero"
 import About from "./sections/About"
@@ -14,7 +16,10 @@ import Education from "./sections/Education"
 
 import ProjectDetail from "./pages/ProjectDetail"
 
-function Home() {
+function Home({
+  language,
+  setLanguage,
+}) {
   return (
     <main className="relative bg-black text-white overflow-hidden">
 
@@ -22,14 +27,31 @@ function Home() {
       <div
         className="
           fixed
-          top-[-300px]
+          top-[-180px]
+          sm:top-[-250px]
+          md:top-[-300px]
+
           left-1/2
           -translate-x-1/2
-          w-[700px]
-          h-[900px]
+
+          w-[320px]
+          h-[420px]
+
+          sm:w-[500px]
+          sm:h-[650px]
+
+          md:w-[500px]
+          md:h-[900px]
+
+          lg:w-[550px]
+
           rounded-full
           bg-blue-500/20
-          blur-[160px]
+
+          blur-[90px]
+          sm:blur-[120px]
+          md:blur-[160px]
+
           pointer-events-none
           z-0
         "
@@ -39,14 +61,31 @@ function Home() {
       <div
         className="
           fixed
-          top-[200px]
+          top-[120px]
+          sm:top-[160px]
+          md:top-[200px]
+
           left-1/2
           -translate-x-1/2
-          w-[1000px]
-          h-[600px]
+
+          w-[100px]
+          h-[260px]
+
+          sm:w-[200px]
+          sm:h-[420px]
+
+          md:w-[250px]
+          md:h-[600px]
+
+          lg:md:w-[500px]
+
           rounded-full
           bg-cyan-500/10
-          blur-[140px]
+
+          blur-[70px]
+          sm:blur-[100px]
+          md:blur-[140px]
+
           pointer-events-none
           z-0
         "
@@ -54,13 +93,24 @@ function Home() {
 
       {/* contenido */}
       <div className="relative z-10">
-        <Navbar />
-        <Hero />
-        <Projects />
-        <Experience />
-        <Education />
-        <Skills />
-        <About />
+
+        <Navbar
+          language={language}
+          setLanguage={setLanguage}
+        />
+
+        <Hero language={language} />
+
+        <Projects language={language} />
+
+        <Experience language={language} />
+
+        <Education language={language} />
+
+        <Skills language={language} />
+
+        <About language={language} />
+
       </div>
 
     </main>
@@ -68,22 +118,35 @@ function Home() {
 }
 
 function App() {
+
+  const [language, setLanguage] = useState("ES")
+
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
 
         <Route
           path="/"
-          element={<Home />}
+          element={
+            <Home
+              language={language}
+              setLanguage={setLanguage}
+            />
+          }
         />
 
         <Route
           path="/projects/:slug"
-          element={<ProjectDetail />}
+          element={
+            <ProjectDetail
+              language={language}
+              setLanguage={setLanguage}
+            />
+          }
         />
 
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

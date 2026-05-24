@@ -37,10 +37,13 @@ import {
   SiFastapi,
   SiYolo
 } from "react-icons/si"
-
+import LanguageSwitcher from "../components/LanguageSwitcher"
 import { projects } from "../data/projects"
 
-function ProjectDetail() {
+function ProjectDetail({
+  language,
+  setLanguage,
+}) {
 
   const { slug } = useParams()
 
@@ -77,11 +80,6 @@ function ProjectDetail() {
   Flutter: {
   icon: SiFlutter,
   color: "text-sky-400",
-  },
-
-  Supabase: {
-  icon: SiSupabase,
-  color: "text-green-400",
   },
 
   Yolo: {
@@ -169,10 +167,7 @@ function ProjectDetail() {
     color: "text-cyan-400",
   },
 }
-    
     const [openLang, setOpenLang] = useState(false)
-
-    const [language, setLanguage] = useState("ES")
 
     const translations = {
     ES: {
@@ -279,162 +274,13 @@ function ProjectDetail() {
           {/* RIGHT */}
           <div className="flex items-center gap-3">
 
-            {/* LANGUAGE */}
-            <div className="relative">
-
-            <motion.button
-                whileHover={{
-                y: -2,
-                }}
-                whileTap={{
-                scale: 0.97,
-                }}
-                onClick={() => setOpenLang(!openLang)}
-                className="
-                group
-                flex
-                items-center
-                gap-2
-                px-4
-                py-2.5
-                rounded-xl
-                border
-                border-white/10
-                bg-white/[0.03]
-                backdrop-blur-xl
-                text-zinc-300
-                hover:text-white
-                hover:border-cyan-500/20
-                transition-all
-                duration-300
-                "
-            >
-
-                <img
-                src={
-                    language === "ES"
-                    ? "https://flagcdn.com/w40/es.png"
-                    : "https://flagcdn.com/w40/gb.png"
-                }
-                alt={language}
-                className="
-                    w-5
-                    h-5
-                    rounded-sm
-                    object-cover
-                "
-                />
-
-                <span className="hidden sm:block text-sm">
-                {language}
-                </span>
-
-                <motion.span
-                animate={{
-                    rotate: openLang ? 180 : 0,
-                }}
-                transition={{
-                    duration: 0.2,
-                }}
-                className="text-xs"
-                >
-                ▼
-                </motion.span>
-
-            </motion.button>
-
-            {/* DROPDOWN */}
-            <motion.div
-                initial={false}
-                animate={{
-                opacity: openLang ? 1 : 0,
-                y: openLang ? 0 : -10,
-                scale: openLang ? 1 : 0.96,
-                pointerEvents: openLang ? "auto" : "none",
-                }}
-                transition={{
-                duration: 0.2,
-                }}
-                className="
-                absolute
-                top-full
-                right-0
-                mt-2
-                w-full
-                min-w-[120px]
-                rounded-xl
-                border
-                border-white/10
-                bg-zinc-900/90
-                backdrop-blur-xl
-                overflow-hidden
-                shadow-2xl
-                z-50
-                "
-            >
-
-                {[
-                {
-                    code: "ES",
-                    flag: "https://flagcdn.com/w40/es.png",
-                },
-
-                {
-                    code: "EN",
-                    flag: "https://flagcdn.com/w40/gb.png",
-                },
-                ].map((lang, index) => (
-
-                <button
-                    key={index}
-                    onClick={() => {
-
-                    if (lang.code === language) {
-                        setOpenLang(false)
-                        return
-                    }
-
-                    setLanguage(lang.code)
-
-                    setOpenLang(false)
-                    }}
-                    className="
-                    w-full
-                    flex
-                    items-center
-                    gap-3
-                    px-4
-                    py-3
-                    text-zinc-300
-                    hover:bg-white/5
-                    hover:text-white
-                    transition-all
-                    duration-200
-                    "
-                >
-
-                    <img
-                    src={lang.flag}
-                    alt={lang.code}
-                    className="
-                        w-5
-                        h-5
-                        rounded-sm
-                        object-cover
-                    "
-                    />
-
-                    <span className="text-sm">
-                    {lang.code}
-                    </span>
-
-                </button>
-
-                ))}
-
-            </motion.div>
-
-            </div>
+          {/* LANGUAGE */}
+          <LanguageSwitcher
+            language={language}
+            setLanguage={setLanguage}
+            openLang={openLang}
+            setOpenLang={setOpenLang}
+          />
 
             {/* BACK */}
             <Link

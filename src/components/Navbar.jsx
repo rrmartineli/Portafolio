@@ -1,12 +1,23 @@
 import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 
-function Navbar() {
+import LanguageSwitcher from "./LanguageSwitcher"
+
+function Navbar({
+  language,
+  setLanguage,
+}) {
+
   const [showNavbar, setShowNavbar] = useState(false)
+  const [openLang, setOpenLang] = useState(false)
 
   useEffect(() => {
+
     const handleScroll = () => {
-      // altura después del hero
-      setShowNavbar(window.scrollY > window.innerHeight * 0.4)
+
+      setShowNavbar(
+        window.scrollY > window.innerHeight * 0.4
+      )
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -14,14 +25,72 @@ function Navbar() {
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
+
   }, [])
+
+  const navItems = [
+    {
+      id: "Projects",
+      label: language === "EN"
+        ? "Projects"
+        : "Proyectos",
+    },
+
+    {
+      id: "experience",
+      label: language === "EN"
+        ? "Experience"
+        : "Experiencia",
+    },
+
+    {
+      id: "Education",
+      label: language === "EN"
+        ? "Education"
+        : "Educación",
+    },
+
+    {
+      id: "Tecnologias",
+      label: language === "EN"
+        ? "Skills"
+        : "Tecnologías",
+    },
+
+    {
+      id: "Sobre mi",
+      label: language === "EN"
+        ? "About"
+        : "Sobre mi",
+    },
+  ]
+
+  const scrollToSection = (id) => {
+
+    const section = document.getElementById(id)
+
+    if (!section) return
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    })
+  }
 
   return (
     <header
       className={`
-        fixed top-0 left-0 w-full z-50
-        backdrop-blur-md bg-black/30 border-b border-white/10
-        transition-all duration-500
+        fixed
+        top-0
+        left-0
+        w-full
+        z-50
+        backdrop-blur-md
+        bg-black/30
+        border-b
+        border-white/10
+        transition-all
+        duration-500
         ${
           showNavbar
             ? "opacity-100 translate-y-0"
@@ -29,37 +98,93 @@ function Navbar() {
         }
       `}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <h1 className="text-xl font-bold tracking-wide">
+
+      <nav
+        className="
+          max-w-7xl
+          mx-auto
+          px-5
+          md:px-8
+          py-4
+          flex
+          items-center
+          justify-between
+        "
+      >
+
+        {/* LOGO */}
+        <motion.button
+          whileHover={{
+            scale: 1.05,
+          }}
+          whileTap={{
+            scale: 0.96,
+          }}
+          onClick={() => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            })
+          }}
+          className="
+            text-xl
+            font-bold
+            tracking-[0.2em]
+            text-white
+          "
+        >
           RM
-        </h1>
+        </motion.button>
 
-        <ul className="hidden md:flex items-center gap-8 text-sm text-zinc-300">
-          <li>
-            <a href="#about" className="hover:text-white transition">
-              Sobre mí
-            </a>
-          </li>
+        {/* RIGHT SIDE */}
+        <div className="flex items-center gap-4">
 
-          <li>
-            <a href="#projects" className="hover:text-white transition">
-              Proyectos
-            </a>
-          </li>
+          {/* NAV LINKS */}
+          <ul
+            className="
+              hidden
+              md:flex
+              items-center
+              gap-8
+              text-sm
+              text-zinc-300
+            "
+          >
 
-          <li>
-            <a href="#experience" className="hover:text-white transition">
-              Experiencia
-            </a>
-          </li>
+            {navItems.map((item, index) => (
 
-          <li>
-            <a href="#contact" className="hover:text-white transition">
-              Contacto
-            </a>
-          </li>
-        </ul>
+              <li key={index}>
+
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className="
+                    relative
+                    hover:text-white
+                    transition
+                    duration-300
+                  "
+                >
+                  {item.label}
+                </button>
+
+              </li>
+
+            ))}
+
+          </ul>
+
+          {/* LANGUAGE */}
+          <LanguageSwitcher
+            language={language}
+            setLanguage={setLanguage}
+            openLang={openLang}
+            setOpenLang={setOpenLang}
+          />
+
+        </div>
+
       </nav>
+
     </header>
   )
 }
