@@ -249,41 +249,86 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
                       duration-300
                       ${i===2?`md:col-span-2 md:justify-self-center lg:col-span-1`:``}
                       ${r}
-                    `,children:[(0,X.jsx)(`div`,{className:`absolute inset-0 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-white/20 via-transparent to-transparent`}),(0,X.jsx)(n,{className:`relative z-10 group-hover/icon:rotate-6`})]},e))})})]})]}),(0,X.jsxs)(Q.div,{initial:{opacity:0,y:40},animate:{opacity:1,y:0},transition:{delay:.2},whileHover:{y:-4},className:`group relative overflow-hidden rounded-[20px] border border-white/10 bg-white/5 flex items-center justify-center hover:border-blue-500/30 hover:bg-white/[0.07] hover:shadow-[0_0_45px_rgba(59,130,246,0.18)]`,children:[(0,X.jsx)(`img`,{src:rm,alt:`CV Preview`,className:`absolute inset-0 w-full h-full object-top scale-105 blur-[0.5px] opacity-50 group-hover:scale-100 group-hover:blur-[1px]`}),(0,X.jsx)(`div`,{className:`absolute inset-0 bg-black/20 backdrop-blur-[1px]`}),(0,X.jsx)(`div`,{className:`absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10`}),(0,X.jsx)(`div`,{className:`relative z-10`,children:(0,X.jsxs)(`button`,{className:`\r
-              group/button \r
-              flex\r
-              items-center\r
-              justify-center\r
+                    `,children:[(0,X.jsx)(`div`,{className:`absolute inset-0 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-white/20 via-transparent to-transparent`}),(0,X.jsx)(n,{className:`relative z-10 group-hover/icon:rotate-6`})]},e))})})]})]}),(0,X.jsxs)(Q.div,{initial:{opacity:0,y:40},animate:{opacity:1,y:0},transition:{delay:.2},whileHover:{y:-4},className:`\r
+    group\r
+    relative\r
+    overflow-hidden\r
+    rounded-[20px]\r
+    border\r
+    border-white/10\r
+    bg-white/5\r
+    flex\r
+    items-center\r
+    justify-center\r
+    hover:border-blue-500/30\r
+    hover:bg-white/[0.07]\r
+    hover:shadow-[0_0_45px_rgba(59,130,246,0.18)]\r
+  `,children:[(0,X.jsx)(`img`,{src:rm,alt:`CV Preview`,className:`\r
+      absolute\r
+      inset-0\r
+      w-full\r
+      h-full\r
+      object-top\r
+      scale-105\r
+      blur-[0.5px]\r
+      opacity-50\r
+      group-hover:scale-100\r
+      group-hover:blur-[1px]\r
+      transition-all\r
+      duration-500\r
+    `}),(0,X.jsx)(`div`,{className:`absolute inset-0 bg-black/20 backdrop-blur-[1px]`}),(0,X.jsx)(`div`,{className:`\r
+      absolute\r
+      inset-0\r
+      opacity-0\r
+      group-hover:opacity-100\r
+      bg-gradient-to-br\r
+      from-blue-500/10\r
+      via-transparent\r
+      to-purple-500/10\r
+      transition-opacity\r
+      duration-500\r
+    `}),(0,X.jsx)(`div`,{className:`relative z-10`,children:(0,X.jsxs)(`a`,{href:e===`EN`?`/cv-en.pdf`:`/cv-es.pdf`,download:!0,className:`\r
+        group/button\r
+        flex\r
+        items-center\r
+        justify-center\r
+        text-center\r
+        gap-2\r
+        px-2\r
+        py-2\r
+        rounded-xl\r
+        border\r
 \r
-              text-center\r
+        md:w-20\r
+        md:h-9\r
+        md:text-xs\r
 \r
-              gap-2\r
-              px-2\r
-              py-2\r
+        lg:w-32\r
+        lg:text-xs\r
+        lg:h-10\r
 \r
-              rounded-xl\r
-              border\r
+        xl:w-36\r
+        xl:text-sm\r
 \r
-              md:w-20\r
-              md:h-9\r
-              md:text-xs\r
+        border-white/10\r
+        bg-white/10\r
+        backdrop-blur-xl\r
+        text-white\r
 \r
-              lg:w-32\r
-              lg:text-xs\r
-              lg:h-10\r
-              xl:w-36\r
-              xl:text-sm\r
-              border-white/10 \r
-              bg-white/10 \r
-              backdrop-blur-xl \r
-              text-white \r
-              transition-all \r
-              duration-300 \r
-              hover:bg-white \r
-              hover:text-black \r
-              hover:scale-105 \r
-              hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]\r
-            `,children:[(0,X.jsx)(tm,{className:` hidden lg:block transition-transform duration-300 lg:group-hover/button:translate-y-[1px]`}),r.downloadCV]})})]}),(0,X.jsxs)(Q.div,{initial:{opacity:0,y:40},animate:{opacity:1,y:0},transition:{delay:.3},whileHover:{y:-4},onMouseEnter:()=>{let e=performance.now(),t=r=>{let i=r-e,a=Math.min(i/600,1);n(Math.floor(a*2+0)),a<1&&requestAnimationFrame(t)};requestAnimationFrame(t)},className:`\r
+        transition-all\r
+        duration-300\r
+\r
+        hover:bg-white\r
+        hover:text-black\r
+        hover:scale-105\r
+        hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]\r
+      `,children:[(0,X.jsx)(tm,{className:`\r
+          hidden\r
+          lg:block\r
+          transition-transform\r
+          duration-300\r
+          lg:group-hover/button:translate-y-[1px]\r
+        `}),r.downloadCV]})})]}),(0,X.jsxs)(Q.div,{initial:{opacity:0,y:40},animate:{opacity:1,y:0},transition:{delay:.3},whileHover:{y:-4},onMouseEnter:()=>{let e=performance.now(),t=r=>{let i=r-e,a=Math.min(i/600,1);n(Math.floor(a*2+0)),a<1&&requestAnimationFrame(t)};requestAnimationFrame(t)},className:`\r
             group\r
             relative\r
             overflow-hidden \r
