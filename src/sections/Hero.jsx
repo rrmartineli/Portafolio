@@ -5,6 +5,7 @@ import { FiDownload, FiMail } from "react-icons/fi";
 import cvPreview from "../assets/cv-preview.png";
 import mapaBogota from "../assets/mapa-bogota.png";
 import { layout } from "../styles/layout"
+import cvFile from "../assets/CV.pdf"
 
 const SOCIAL_LINKS = [
   
@@ -222,54 +223,124 @@ function Hero({ language }) {
         </motion.div>
 
         {/* CV */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} whileHover={{ y: -4 }}
-          className="group relative overflow-hidden rounded-[20px] border border-white/10 bg-white/5 flex items-center justify-center hover:border-blue-500/30 hover:bg-white/[0.07] hover:shadow-[0_0_45px_rgba(59,130,246,0.18)]"
-        >
-          <img src={cvPreview} alt="CV Preview" className="absolute inset-0 w-full h-full object-top scale-105 blur-[0.5px] opacity-50 group-hover:scale-100 group-hover:blur-[1px]" />
-          <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10" />
-          <div className="relative z-10">
-           <button className="
-              group/button 
-              flex
-              items-center
-              justify-center
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2 }}
+  whileHover={{ y: -4 }}
+  className="
+    group
+    relative
+    overflow-hidden
+    rounded-[20px]
+    border
+    border-white/10
+    bg-white/5
+    flex
+    items-center
+    justify-center
+    hover:border-blue-500/30
+    hover:bg-white/[0.07]
+    hover:shadow-[0_0_45px_rgba(59,130,246,0.18)]
+  "
+>
+  <img
+    src={cvPreview}
+    alt="CV Preview"
+    className="
+      absolute
+      inset-0
+      w-full
+      h-full
+      object-top
+      scale-105
+      blur-[0.5px]
+      opacity-50
+      group-hover:scale-100
+      group-hover:blur-[1px]
+      transition-all
+      duration-500
+    "
+  />
 
-              text-center
+  <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
 
-              gap-2
-              px-2
-              py-2
+  <div
+    className="
+      absolute
+      inset-0
+      opacity-0
+      group-hover:opacity-100
+      bg-gradient-to-br
+      from-blue-500/10
+      via-transparent
+      to-purple-500/10
+      transition-opacity
+      duration-500
+    "
+  />
 
-              rounded-xl
-              border
+  <div className="relative z-10">
 
-              md:w-20
-              md:h-9
-              md:text-xs
+    <a
+      href={
+        language === "EN"
+          ? "/cv-en.pdf"
+          : "/cv-es.pdf"
+      }
+      download
+      className="
+        group/button
+        flex
+        items-center
+        justify-center
+        text-center
+        gap-2
+        px-2
+        py-2
+        rounded-xl
+        border
 
-              lg:w-32
-              lg:text-xs
-              lg:h-10
-              xl:w-36
-              xl:text-sm
-              border-white/10 
-              bg-white/10 
-              backdrop-blur-xl 
-              text-white 
-              transition-all 
-              duration-300 
-              hover:bg-white 
-              hover:text-black 
-              hover:scale-105 
-              hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]
-            ">
-              <FiDownload className=" hidden lg:block transition-transform duration-300 lg:group-hover/button:translate-y-[1px]" />
-              {t.downloadCV}
-            </button>
-          </div>
-        </motion.div>
+        md:w-20
+        md:h-9
+        md:text-xs
+
+        lg:w-32
+        lg:text-xs
+        lg:h-10
+
+        xl:w-36
+        xl:text-sm
+
+        border-white/10
+        bg-white/10
+        backdrop-blur-xl
+        text-white
+
+        transition-all
+        duration-300
+
+        hover:bg-white
+        hover:text-black
+        hover:scale-105
+        hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]
+      "
+    >
+      <FiDownload
+        className="
+          hidden
+          lg:block
+          transition-transform
+          duration-300
+          lg:group-hover/button:translate-y-[1px]
+        "
+      />
+
+      {t.downloadCV}
+    </a>
+
+  </div>
+</motion.div>
 
         {/* EXPERIENCIA */}
         <motion.div
