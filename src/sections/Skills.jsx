@@ -57,7 +57,18 @@ const skillsBottom = [
    SECTION
 ========================= */
 
-function Skills() {
+function Skills({ language }) {
+  const translations = {
+    ES: {
+      title: "Tecnologías",
+    },
+
+    EN: {
+      title: "Technologies",
+    },
+  }
+
+  const t = translations[language]
   return (
     <section className={`${layout.section} relative scroll-mt-10`} id="Tecnologias">
       <div className={`${layout.container} relative overflow-hidden `}>
@@ -75,7 +86,7 @@ function Skills() {
             className="text-center mb-10"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white">
-              Tecnologías
+              {t.title}
             </h2>
           </motion.div>
 

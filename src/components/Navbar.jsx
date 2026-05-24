@@ -53,7 +53,7 @@ function Navbar({
     {
       id: "Tecnologias",
       label: language === "EN"
-        ? "Skills"
+        ? "Technologies"
         : "Tecnologías",
     },
 
