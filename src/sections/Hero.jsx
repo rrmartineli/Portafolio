@@ -6,6 +6,7 @@ import cvPreview from "../assets/cv-preview.png";
 import mapaBogota from "../assets/mapa-bogota.png";
 import { layout } from "../styles/layout"
 import cvFile from "../assets/CV.pdf"
+import yo from "../assets/yo.png"
 
 const SOCIAL_LINKS = [
   
@@ -127,9 +128,12 @@ function Hero({ language }) {
           <div className="relative sm:items-center md:mt-2 md:mb-4">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
             
-            {/* SOLO CAMBIÉ EL TAMAÑO EN MOBILE */}
-            <div className="relative w-28 h-28 md:w-24 md:h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-6xl shadow-2xl backdrop-blur-sm">
-              👨🏽‍💻
+            <div className="relative w-30 h-30 lg:w-40 lg:h-40 rounded-3xl overflow-hidden border border-white/10 shadow-2xl backdrop-blur-sm">
+              <img
+                src={yo}
+                alt="Rafael Martínez"
+                className="w-full h-full object-cover object-[center_20%]"
+              />
             </div>
           </div>
 
